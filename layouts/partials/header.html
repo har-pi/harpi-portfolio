@@ -1,0 +1,73 @@
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      {{ partial "logo.html" . }}
+    </div>
+    
+    <!-- Mobile menu toggle -->
+    <button id="mobile-menu-toggle" 
+            class="mobile-menu-toggle" 
+            aria-controls="main-navigation" 
+            aria-expanded="false"
+            aria-label="Toggle main menu">
+      <span class="hamburger-icon">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+    
+    <!-- Language selector if enabled -->
+    {{ if and $.Site.Params.showLanguageSelector (len $.Site.Home.AllTranslations) }}
+      {{ partial "language-menu.html" . }}
+    {{ end }}
+  </div>
+  
+  <!-- Main navigation -->
+  {{ if len $.Site.Menus }}
+    <nav id="main-navigation" class="main-navigation" aria-label="Main Navigation" role="navigation">
+      <ul class="navigation-menu">
+        {{ range $.Site.Menus.main }}
+          {{ if not .HasChildren }}
+            <li class="nav-item {{ if $.IsMenuCurrent "main" . }}active{{ end }}">
+              <a href="{{ .URL }}" 
+                 class="nav-link"
+                 {{ if .Params.NewTab }}target="_blank" rel="noopener noreferrer"{{ end }}
+                 {{ if $.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
+                <span class="nav-text">{{ .Name }}</span>
+                <span class="nav-indicator"></span>
+              </a>
+            </li>
+          {{ else }}
+            <li class="nav-item nav-item--dropdown {{ if $.HasMenuCurrent "main" . }}active{{ end }}">
+              <a href="{{ .URL }}" 
+                 class="nav-link nav-link--dropdown"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                <span class="nav-text">{{ .Name }}</span>
+                <span class="dropdown-arrow">▾</span>
+                <span class="nav-indicator"></span>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                {{ range .Children }}
+                  <li role="none">
+                    <a href="{{ .URL }}" 
+                       class="dropdown-link"
+                       role="menuitem"
+                       {{ if .Params.NewTab }}target="_blank" rel="noopener noreferrer"{{ end }}>
+                      {{ .Name }}
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            </li>
+          {{ end }}
+        {{ end }}
+      </ul>
+    </nav>
+  {{ end }}
+</header>
+
+<!-- Mobile overlay -->
+<div id="mobile-overlay" class="mobile-overlay" aria-hidden="true"></div>

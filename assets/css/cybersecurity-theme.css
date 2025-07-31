@@ -1,0 +1,334 @@
+/* Cybersecurity Portfolio Theme - Dark with Bright Green Accents */
+:root {
+  --background: #0a0a0a;
+  /*--background: #000000;*/
+  --card-background: #1a1a1a;
+  --foreground: #e0e0e0;
+  /*--foreground: #39ff14;*/
+  --foreground: #ff9100;
+  --accent: #00ff00;
+  --accent-dim: #00cc00;
+  --accent-bright: #33ff33;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 255, 0, 0.2);
+  --font-size: 1.5rem;
+  --line-height: 1.54em;
+  --radius: 20px;
+}
+
+/* Override terminal theme colors */
+body {
+  background-color: var(--background) !important;
+  color: var(--foreground) !important;
+  font-family: "Fira Code", "Courier New", Monaco, Consolas, "Ubuntu Mono", monospace !important;
+}
+
+/* Header and Navigation */
+.header {
+  background: var(--card-background);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  padding: 1rem;
+  box-shadow: 0 0 20px var(--shadow-color);
+}
+
+.logo {
+  color: var(--accent) !important;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--accent-bright) !important;
+  text-shadow: 0 0 10px var(--accent);
+  transform: scale(1.05);
+}
+
+.logo::before {
+  content: "[ harpi ~/ ]$ _";
+  color: var(--foreground);
+}
+
+/* Menu styling */
+.menu {
+  background: transparent;
+}
+
+.menu__inner {
+  background: var(--card-background);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+
+.menu__inner li a {
+  color: var(--foreground) !important;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+}
+
+.menu__inner li a:hover {
+  background: var(--accent);
+  color: var(--background) !important;
+  text-shadow: none;
+}
+
+/* Card-based layout for posts */
+.posts {
+  display: grid;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 20px !important;
+}
+
+.post.on-list {
+  background: var(--card-background);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 0 15px var(--shadow-color);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.post.on-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+}
+
+.post.on-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 25px var(--shadow-color);
+  border-color: var(--accent-bright);
+}
+
+.post-title {
+  color: var(--accent) !important;
+  font-size: 1.3rem !important;
+  margin-bottom: 1rem !important;
+  font-weight: bold;
+}
+
+.post-title a {
+  color: var(--accent) !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+  color: var(--accent-bright) !important;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.post-title::before {
+  content: "▶ ";
+  color: var(--accent);
+  font-size: 0.8em;
+}
+
+/* Post metadata styling */
+.post-meta {
+  color: var(--accent-dim);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(0, 255, 0, 0.1);
+  border-radius: var(--radius);
+  border-left: 4px solid var(--accent);
+}
+
+.post-date,
+.post-author {
+  color: var(--accent-dim);
+}
+
+/* Tags styling */
+.post-tags {
+  margin: 1rem 0;
+}
+
+.post-tags a {
+  background: var(--accent);
+  color: var(--background) !important;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.post-tags a:hover {
+  background: var(--accent-bright);
+  transform: scale(1.05);
+}
+
+/* Content styling */
+.post-content {
+  color: var(--foreground);
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+/* Read more button */
+.read-more.button {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border: 2px solid var(--accent) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: var(--radius) !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.read-more.button:hover {
+  background: var(--accent) !important;
+  color: var(--background) !important;
+  box-shadow: 0 0 15px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+/* Welcome section styling */
+.index-content {
+  background: var(--card-background);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px var(--shadow-color);
+  text-align: center;
+}
+
+.index-content h1 {
+  color: var(--accent) !important;
+  font-size: 2rem !important;
+  margin-bottom: 1rem !important;
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.index-content h1::before {
+  content: "🔒 ";
+  color: var(--accent);
+}
+
+.index-content p {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Links and accents */
+a {
+  color: var(--accent) !important;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-bright) !important;
+  text-shadow: 0 0 5px var(--accent);
+}
+
+/* Code blocks */
+pre {
+  background: var(--card-background) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 0 10px var(--shadow-color);
+}
+
+code {
+  background: rgba(0, 255, 0, 0.1) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+  border-radius: 4px !important;
+}
+
+/* Container adjustments */
+.container {
+  border-right: 1px solid var(--accent) !important;
+  background: var(--background);
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+}
+
+/* Footer */
+.footer {
+  border-top: 2px solid var(--accent);
+  padding-top: 1rem;
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--accent-dim);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .posts {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .post.on-list {
+    padding: 1rem;
+  }
+
+  .index-content {
+    padding: 1rem;
+  }
+
+  .index-content h1 {
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Animation for cybersecurity feel */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px var(--shadow-color);
+  }
+
+  50% {
+    box-shadow: 0 0 20px var(--shadow-color);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--shadow-color);
+  }
+}
+
+.post.on-list:hover {
+  animation: glow 2s infinite;
+}
+
+/* Terminal-like cursor effect */
+.post-title::after {
+  content: "_";
+  color: var(--accent);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}

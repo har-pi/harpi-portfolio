@@ -1,0 +1,74 @@
+/* Hacker green theme overrides */
+:root {
+  /* Override Hello Friend NG colors */
+  --background: #0a0a0a;
+  --background-secondary: #1a1a1a;
+  --color: #00ff00;
+  --color-secondary: #00cc00;
+  --border-color: #00ff00;
+  --link-color: #00ff00;
+  --link-color-hover: #33ff33;
+  --selection-background: #00ff0033;
+  --selection-text: #000000;
+}
+
+/* Dark theme specific */
+.dark-theme {
+  --background: #0a0a0a !important;
+  --background-secondary: #1a1a1a !important;
+  --header: #1a1a1a;
+  --color: #00ff00 !important;
+  --color-secondary: #00cc00 !important;
+  --border-color: #00ff00 !important;
+}
+
+/* Logo styling */
+.logo__text {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: var(--color) !important;
+}
+
+/* Menu items */
+.menu__inner li a {
+  color: var(--color) !important;
+}
+
+.menu__inner li a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color);
+}
+
+/* Post titles */
+.post__title a {
+  color: var(--color) !important;
+}
+
+/* Links */
+a {
+  color: var(--link-color) !important;
+}
+
+a:hover {
+  color: var(--link-color-hover) !important;
+}
+
+/* Code blocks with terminal style */
+pre {
+  background-color: #000000 !important;
+  border: 1px solid var(--border-color);
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* Terminal prompt effect for logo */
+.logo__text::before {
+  content: "$ ";
+  color: var(--color-secondary);
+}
+
+/* Cursor blink */
+.logo__cursor {
+  background-color: var(--color) !important;
+}
