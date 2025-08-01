@@ -1,6 +1,8 @@
 
 ---
 title: "Sample HTB Machine - Walkthrough"
+description: hello
+summary: hello
 date: 2025-07-23
 draft: false
 tags: ["htb", "linux", "web", "privilege-escalation"]

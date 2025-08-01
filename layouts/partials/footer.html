@@ -1,0 +1,24 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__content">
+      <p>&copy; {{ now.Year }} {{ .Site.Params.author }}. All rights reserved.</p>
+      <p class="footer__tagline">Cyberspace. A consensual hallucination experienced daily by billions of legitimate
+        operators, in every nation.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="{{ " js/navigation.js" | relURL }}"></script>
+
+<!-- Service Worker for performance (optional) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('/sw.js').then(function (registration) {
+        console.log('SW registered: ', registration);
+      }).catch(function (registrationError) {
+        console.log('SW registration failed: ', registrationError);
+      });
+    });
+  }
+</script>

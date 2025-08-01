@@ -2,9 +2,9 @@ baseURL: "https://harpi.github.io"
 languageCode: "en-us"
 title: "harpi - Cybersecurity Portfolio"
 description: "Pentesting | HTB Writeups | Research"
-theme: "hello-friend-ng"
+theme: "terminal-fluo"
 # This message is only used by the RSS template.
-#copyright: ""
+copyright: ""
 
 archetypeDir: "archetypes"
 contentDir: "content"
@@ -12,26 +12,17 @@ dataDir: "data"
 layoutDir: "layouts"
 publishDir: "public"
 
-# INFINITE SCROLL
-pagination.pagerSize: 0
-#buildDrafts  = false
-#buildFuture  = false
-#buildExpired = false
 #canonifyURLs = true
-
-#enableRobotsTXT = true
-#enableGitInfo   = false
-#enableEmoji     = true
 #enableMissingTranslationPlaceholders = false
 #disableRSS     = false
 #disableSitemap = false
 #disable404     = false
 #disableHugoGeneratorInject = false
 
-#[pagination]
-#  disableAliases = false
-#  pagerSize = 20
-#  path = 'page'
+pagination:
+  disableAliases: false
+  pagerSize: 20
+  path: "page"
 
 PygmentsCodeFences: true
 PygmentsStyle: "monokai"
@@ -40,7 +31,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-enableGitInfo: false
+enableGitInfo: true
 enableEmoji: true
 #timeout: 30000
 
@@ -63,12 +54,10 @@ params:
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
   # linking local files with their path relative to the static folder, e.g. "css/styles.css"
-  #
-  customCSS: []
-  customJS: []
+  #customCSS: ["static/css/custom.css"]
+  #customJS: ["js/navigation.js"]
 
   # Toggle this option need to rebuild SCSS, requires extended version of Hugo
-  #
   justifyContent: false # Set "text-align: justify" to .post-content.
 
   # Integrate Plausible.io
@@ -79,10 +68,10 @@ params:
   themeColor: "green"
 
   # set theme to full screen width
-  fullWidthTheme: false
+  fullWidthTheme: true
 
   # center theme with default width
-  centerTheme: false
+  centerTheme: true
 
   # if your resource directory contains an image called `cover.(jpg|png|webp)`,
   # then the file will be used as a cover automatically.
@@ -97,8 +86,8 @@ params:
   showMenuItems: 5
 
   # Home page config
-  homeSubtitle: "Penetration Tester | Security Researcher | HTB Player"
-  subtitle: "Penetration Testing | Vulnerability Research"
+  homeSubtitle: "Security Researcher | Penetration Tester"
+  subtitle: "Security Researcher | Penetration Tester"
 
   # Site metadata
   author: "harpi"
@@ -114,52 +103,47 @@ params:
       "fuzzing",
     ]
 
-  homeInfoParams:
-  Title: "root@security:~$"
-
   # Custom footer
-  # If you want, you can easily override the default footer with your own content.
-  #
+  # If you want, you can easily override the default footer with your own content
   footer:
-    trademark: true
+    trademark: false
     rss: true
-    copyright: true
-    author: true
+    copyright: false
+    author: false
 
-    topText: []
-    bottomText: []
+    #topText: ["harpi. All rights reserved"]
+    #bottomText: ["harpi. All rights reserved"]
+
+  showFullContent: false
 
   ################### SOCIAL/LOGOS ###################
 
   # Social icons
   social:
     - name: "github"
-      url: "https://github.com/harpi"
+      url: "https://github.com/har-pi"
     - name: "gitlab"
-      url: "https://github.com/harpi"
+      url: "https://gitlab.com/harpi"
     - name: "email"
-      url: "mailto:your-email@example.com"
+      url: "mailto:harrypantazis@radicallyopensecurity.com"
     - name: "hackthebox"
       url: "https://app.hackthebox.com/profile/harpi"
 
   # Custom cybersecurity branding
   logo:
-    logoText: "$ harpi"
-    logoHomeLink: "/"
-    logoMark: ">"
+    logoText: "~/harpi"
+    #logoMark: "$"
 
   # Portrait on home page
   portrait:
-    path: "./"
+    path: "./images/profile.png"
     alt: "harpi"
     maxWidth: "150px"
-
     env: production
 
   title: Security Researcher
 
   ################### MISC ###################
-  showReadingTime: true
 
   # Sharing buttons
   #
@@ -169,9 +153,9 @@ params:
   #enableSharingButtons: true
   showShareButtons: false
 
-  showPostNavLinks: true
+  showPostNavLinks: false
 
-  showBreadCrumbs: true
+  showBreadCrumbs: false
 
   showCodeCopyButtons: true
 
@@ -187,10 +171,10 @@ params:
   hidemeta: false
   hideSummary: false
   showtoc: true
-  tocopen: false
+  tocopen: true
 
   # Set a background for the homepage
-  # backgroundImage = "assets/images/background.jpg"
+  backgroundImage: "static/images/shodan-thumb-2.jpg"
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
   #
@@ -208,7 +192,7 @@ params:
   #showLastUpdated = false
 
   # set a custom favicon (default is a `themeColor` square)
-  # favicon = "favicon.ico"
+  favicon: "./static/favicon.ico"
 
   # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
   # updatedDatePrefix = "Updated"
@@ -217,7 +201,7 @@ params:
   # oneHeadingSize = true # default
 
   # whether to show a page's estimated reading time
-  # readingTime = false # default
+  readingTime: true # default
 
   # whether to show a table of contents
   # can be overridden in a page's front-matter
@@ -228,11 +212,10 @@ params:
   TocTitle: "Table of Contents" # default
 
   # you can set a banner on the top of the page with a call to action
-  # defaults: dismissible = false; URL is optional
-  # [params.banner]
-  # dismissible = false
-  # text = "Check it out on GitHub"
-  # url = "https://github.com/mirus-ua/hugo-theme-re-terminal"
+  banner:
+    dismissible: false
+    text: "Check it out on GitHub"
+    url: "https://github.com/mirus-ua/hugo-theme-re-terminal"
 
 # Menu configuration
 menu:
@@ -264,8 +247,6 @@ taxonomies:
   category: "categories"
   difficulty: "difficulty"
   platform: "platform"
-  technique: "techniques"
-  series: "series"
 
 # Output formats
 outputs:
