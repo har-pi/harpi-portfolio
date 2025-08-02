@@ -9,7 +9,7 @@
 :root {
   --background: #0a0a0a;
   --card-background: #1a1a1a;
-  --foreground: #ff9100;
+  --foreground: #ffb733;
   --accent: #00ff00;
   --accent-dim: #00cc00;
   --accent-bright: #33ff33;
@@ -35,10 +35,12 @@ body {
 }
 
 /* Links */
+/*
 a {
   color: var(--accent) !important;
   transition: color 0.3s ease;
 }
+*/
 
 a:hover {
   color: var(--accent-bright) !important;
@@ -46,22 +48,26 @@ a:hover {
 }
 
 /* Code blocks */
+/*
 pre {
   background: var(--card-background) !important;
   border: 1px solid var(--accent) !important;
   border-radius: var(--radius) !important;
   box-shadow: 0 0 10px var(--shadow-color);
 }
+*/
 
+/*
 code {
   background: rgba(0, 255, 0, 0.1) !important;
   color: var(--accent) !important;
   border: 1px solid var(--accent) !important;
   border-radius: 4px !important;
 }
+*/
 
 /* ====================================
-   HEADER & NAVIGATION
+   HEADER & FOOTER
    ==================================== */
 .header {
   background: var(--card-background);
@@ -82,6 +88,18 @@ code {
   padding: 0 2rem;
 }
 */
+
+.footer {
+  border-top: 2px solid var(--accent);
+  padding-top: 0rem;
+  margin-top: 0rem;
+  text-align: center;
+  color: var(--accent-dim);
+}
+
+/* ====================================
+   LOGO & NAVIGATION MENU
+   ==================================== */
 
 /* Logo with bright orange background */
 .logo {
@@ -187,41 +205,9 @@ code {
 }
 
 /* ====================================
-   INDEX/WELCOME SECTION
-   ==================================== */
-.index-content {
-  background: var(--card-background);
-  border: 2px solid rgba(0, 255, 0, 0.3);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  margin-bottom: 2.5rem;
-  box-shadow: 0 0 20px var(--shadow-color);
-  text-align: center;
-}
-
-.index-content h1 {
-  color: var(--accent) !important;
-  font-size: 2.2rem !important;
-  font-weight: 600 !important;
-  text-shadow: 0 0 10px var(--accent);
-  margin-bottom: 1rem !important;
-}
-
-.index-content h1::before {
-  content: "🔒 ";
-  color: var(--accent);
-}
-
-.index-content p {
-  color: var(--foreground);
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* ====================================
    POSTS SECTION
    ==================================== */
-.posts {
+/*.posts {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
   gap: 2rem !important;
@@ -255,17 +241,17 @@ code {
   border-color: var(--accent-bright);
   animation: glow 2s infinite;
 }
-
+*/
 /* Post titles */
 .post-title {
-  color: var(--accent) !important;
+  color: var(--foreground) !important;
   font-size: 1.3rem !important;
   margin-bottom: 1rem !important;
   font-weight: bold;
 }
 
 .post-title a {
-  color: var(--accent) !important;
+  color: var(--foreground) !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -347,15 +333,37 @@ code {
 }
 
 /* ====================================
-   FOOTER
+   INDEX/WELCOME SECTION
    ==================================== */
-.footer {
-  border-top: 2px solid var(--accent);
-  padding-top: 1rem;
-  margin-top: 2rem;
+/*.index-content {
+  background: var(--card-background);
+  border: 2px solid rgba(0, 255, 0, 0.3);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 0 20px var(--shadow-color);
   text-align: center;
-  color: var(--accent-dim);
 }
+
+.index-content h1 {
+  color: var(--accent) !important;
+  font-size: 2.2rem !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 10px var(--accent);
+  margin-bottom: 1rem !important;
+}
+
+.index-content h1::before {
+  content: "🔒 ";
+  color: var(--accent);
+}
+
+.index-content p {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+*/
 
 /* ====================================
    ANIMATIONS
