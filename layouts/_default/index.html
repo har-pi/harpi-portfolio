@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+{{ if .IsHome }}
+<!-- TODO remove as many as possible-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="css/slides.css" name="main-styles">
+<link rel="stylesheet" href="css/animate-style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+  integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+
+<body class="{{ if .IsHome }}homepage {{ end }}slides fast animated"></body>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<div id="pattern"></div>
+<div class="shadow_corner" id="top_left"></div>
+<div class="shadow_corner" id="top_right"></div>
+<div class="shadow_corner" id="bottom_left"></div>
+<div class="shadow_corner" id="bottom_right"></div>
+<div id="container">
+  <div class="overlay"></div>
+  <div class="item-title">
+    <div id="message"></div>
+    <div class="link-bottom animated fadeInDown">
+      <div class="link-bottom">
+        <a class="link-icon" href="https://github.com/harpi/" target="_blank"><i class="link-icon fa fa-github"
+            aria-hidden="true"></i></a>
+        <a class="link-icon" href="https://gitlab.com/harpi/" target="_blank"><i class="link-icon fa fa-gitlab"
+            aria-hidden="true"></i></a>
+        <a class="link-icon" href="https://linkedin.com/in/harpi/" target="_blank"><i class="link-icon fa fa-linkedin"
+            aria-hidden="true"></i></a>
+        <a class="link-icon" href="file://./gpg" target="_blank"><i class="link-icon fa fa-key"
+            aria-hidden="true"></i></a>
+        <a href="mailto:harrypantazis@radicallyopensecurity.com?subject=From site" class='symbol' title='circleemail'><i
+            class="link-icon fa fa-envelope" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fullscreen-bg">
+  <video playsinline autoplay muted loop poster="video/current/bg.jpg" id="bgvid">
+    <source src="video/current/bg.webm" type="video/webm">
+    <source src="video/current/bg.mp4" type="video/mp4">
+    <source src="video/current/bg.ogv" type="video/ogg">
+  </video>
+</div>
+
+<!-- Preloader -->
+<div class="loadingIcon">
+  <svg class="loading-icon" id="loading-circle" viewBox="0 0 18 18">
+    <circle class="circle" opacity=".1" stroke="#fff" stroke-width="2" stroke-miterlimit="10" cx="9" cy="9" r="8"
+      fill="none"></circle>
+    <circle class="dash" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke-dasharray="1,100" cx="9"
+      cy="9" r="8" fill="none"></circle>
+  </svg>
+</div>
+
+<!-- SVG Library -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="close" viewBox="0 0 30 30">
+    <path
+      d="M15 0c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.7-15-15-15zm5.7 19.3c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3s-.5-.1-.7-.3l-4.3-4.3-4.3 4.3c-.2.2-.4.3-.7.3s-.5-.1-.7-.3c-.4-.4-.4-1 0-1.4l4.3-4.3-4.3-4.3c-.4-.4-.4-1 0-1.4s1-.4 1.4 0l4.3 4.3 4.3-4.3c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-4.3 4.3 4.3 4.3z" />
+  </symbol>
+  <symbol id="hse" viewBox="0 0 30 30">
+    <path
+      d="M141.73 0C63.58 0 0 63.57 0 141.72c0 78.16 63.58 141.75 141.73 141.75s141.73-63.59 141.73-141.75C283.46 63.57 219.88 0 141.73 0zm0 275.25c-73.62 0-133.51-59.9-133.51-133.54 0-73.61 59.89-133.5 133.51-133.5s133.51 59.89 133.51 133.5c.01 73.64-59.89 133.54-133.51 133.54zm23.53-145.93c8.95-3.66 14.39-9.3 17.95-13.58 6.81-7.83 9.6-17.44 9.6-26.52 0-7.34-2.02-21.99-14.9-32.08-8.83-6.84-16.67-10.12-35.37-10.12h-9.46c-.29-.01-.58-.01-.93-.01H93.11V231.3h111.43v-35.37c0-33.85-10.94-56.6-39.28-66.61zm14.03 91.83H159.2v-61.51h-23.21v61.58h-17.75V56.2h18.24c6.83 0 17.19 1.53 24.52 10.63 3.82 4.6 6.16 10.72 6.98 16.88H136v9.08h32.27c-.26 5.86-1.45 12.42-7.2 19.39-5.05 6.32-13.36 12.19-25.08 12.19h-.19v9.19c31.32 0 43.51 20.82 43.51 58.93v28.66z" />
+  </symbol>
+</svg>
+
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script async src="js/main.js"></script>
+<!--[if lt IE 10]><script type="text/javascript" src="js/placeholder.js"></script><![endif]-->
+</body>
+
+{{ else }}
+
+<!-- ─── FALLBACK FOR ALL OTHER PAGES (posts, sections, single) ──── -->
+{{ if .Content }}
+<div class="index-content {{ if .Params.framed }}framed{{ end }}">
+  {{ .Content }}
+</div>
+{{ end }}
+
+<div class="posts">
+  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+  {{ range $paginator.Pages }}
+  {{ partial "post-list-item.html" . }}
+  {{ end }}
+  {{ partial "pagination.html" . }}
+</div>
+
+{{ end }}
+
+{{ end }}

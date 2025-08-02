@@ -1,38 +1,30 @@
-$(window).load(function() {
-
-    (function() {
+$(window).load(function () {
+    (function () {
         var $animate, $container, $message, $paragraph, MESSAGES, animate, initialise, scramble;
         MESSAGES = [];
         MESSAGES.push({
             delay: 0,
-            text: 'Harry ~luserx0~ Pantazis'
+            text: 'Harry ~harpi~ Pantazis'
         });
 
         MESSAGES.push({
             delay: 800,
-            text: ' —  FOSS Engineer;'
+            text: ' —  Security Researcher;'
         });
         MESSAGES.push({
-            delay: 1800,
-            text: ' —  Security Engineer;'
+            delay: 1600,
+            text: ' —  Penetration Tester;'
         });
         MESSAGES.push({
-            delay: 2600,
-            text: ' —  System Administrator;'
-        });
-        MESSAGES.push({
-            delay: 3200,
-            text: ' —  Hackerspace.gr Operator;'
-        });
-        MESSAGES.push({
-            delay: 4800,
-            text: ' '
+            delay: 2400,
+            text: ' —  Red Teamer;'
         });
         $container = $('#container');
         $message = $('#message');
         $animate = $('#animate');
         $paragraph = null;
-        scramble = function(element, text, options) {
+
+        scramble = function (element, text, options) {
             var $element, addGlitch, character, defaults, ghostCharacter, ghostCharacters, ghostLength, ghostText, ghosts, glitchCharacter, glitchCharacters, glitchIndex, glitchLength, glitchProbability, glitchText, glitches, i, k, letter, object, order, output, parameters, ref, results, settings, shuffle, target, textCharacters, textLength, wrap;
             defaults = {
                 probability: 0.2,
@@ -44,21 +36,23 @@ $(window).load(function() {
             };
             $element = $(element);
             settings = $.extend(defaults, options);
-            shuffle = function() {
+            shuffle = function () {
                 if (Math.random() < 0.5) {
                     return 1;
                 } else {
                     return -1;
                 }
             };
-            wrap = function(text, classes) {
+            wrap = function (text, classes) {
                 return '<span class="' + classes + '">' + text + '</span>';
             };
+
+
             glitchText = settings.glitches;
             glitchCharacters = glitchText.split('');
             glitchLength = glitchCharacters.length;
             glitchProbability = settings.probability;
-            glitches = function() {
+            glitches = function () {
                 var j, len, results;
                 results = [];
                 for (j = 0, len = glitchCharacters.length; j < len; j++) {
@@ -70,7 +64,7 @@ $(window).load(function() {
             ghostText = $element.text();
             ghostCharacters = ghostText.split('');
             ghostLength = ghostCharacters.length;
-            ghosts = function() {
+            ghosts = function () {
                 var j, len, results;
                 results = [];
                 for (j = 0, len = ghostCharacters.length; j < len; j++) {
@@ -81,7 +75,7 @@ $(window).load(function() {
             }();
             textCharacters = text.split('');
             textLength = textCharacters.length;
-            order = function() {
+            order = function () {
                 results = [];
                 for (var j = 0; 0 <= textLength ? j < textLength : j > textLength; 0 <= textLength ? j++ : j--) {
                     results.push(j);
@@ -102,7 +96,7 @@ $(window).load(function() {
             parameters = {
                 duration: settings.duration,
                 ease: settings.ease,
-                step: function() {
+                step: function () {
                     var index, l, progress, ref1;
                     progress = Math.floor(object.value * (textLength - 1));
                     for (i = l = 0, ref1 = progress; 0 <= ref1 ? l <= ref1 : l >= ref1; i = 0 <= ref1 ? ++l : --l) {
@@ -111,13 +105,14 @@ $(window).load(function() {
                     }
                     return $element.html(output.join(''));
                 },
-                complete: function() {
+                complete: function () {
                     return $element.html(text);
                 }
             };
             return $(object).delay(settings.delay).animate(target, parameters);
         };
-        animate = function() {
+
+        animate = function () {
             var data, element, index, j, len, options;
             for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
                 data = MESSAGES[index];
@@ -127,7 +122,8 @@ $(window).load(function() {
                 scramble(element, data.text, options);
             }
         };
-        initialise = function() {
+
+        initialise = function () {
             var index, j, len, text;
             $animate.click(animate);
             for (index = j = 0, len = MESSAGES.length; j < len; index = ++j) {
@@ -137,7 +133,7 @@ $(window).load(function() {
             $paragraph = $container.find('p');
             animate();
         };
+
         initialise();
     }.call(this));
-
 });
