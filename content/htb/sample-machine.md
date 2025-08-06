@@ -11,7 +11,7 @@ difficulty: ["Medium"]
 platform: ["Linux"]
 ---
 
-![MACHINE](https://app.hackthebox.com/machines/sample)
+![MACHINE](../../images/Era.png)
 
 ## Generic Information
 

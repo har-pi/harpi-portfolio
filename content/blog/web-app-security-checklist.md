@@ -3,6 +3,7 @@
 title: "Web Application Security Checklist for Penetration Testers"
 date: 2025-07-23
 draft: false
+description: Hello
 tags: ["web-security", "checklist", "penetration-testing", "owasp"]
 categories: ["tutorials"]
 ---

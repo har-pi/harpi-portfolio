@@ -7,15 +7,26 @@
    CSS VARIABLES
    ==================================== */
 :root {
+  /* Pallette */
   --background: #0a0a0a;
   --card-background: #1a1a1a;
-  --foreground: #ffb733;
+  --foreground: #cfcfcf;
   --accent: #00ff00;
   --accent-dim: #00cc00;
   --accent-bright: #33ff33;
-  --radius: 8px;
   --shadow-color: rgba(0, 255, 0, 0.2);
-  --font-size: 1.0rem;
+
+  /* Font sizes */
+  --logo-size: 2.0rem;
+  --menu-size: 1.5rem;
+  --post-title-size: 2.0rem;
+  --post-content-size: 1.3rem;
+  --post-tag-size: 0.9rem;
+  --post-meta-size: 0.9rem;
+  --read-more-size: 0.7rem;
+
+  /* Misc */
+  --radius: 8px;
 }
 
 /* ====================================
@@ -73,8 +84,8 @@ code {
   background: var(--card-background);
   border: 1px solid rgba(0, 255, 0, 0.3);
   border-radius: var(--radius);
-  margin-bottom: 2rem;
-  padding: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
   box-shadow: 0 0 20px var(--shadow-color);
 }
 
@@ -93,7 +104,9 @@ code {
   border-top: 2px solid var(--accent);
   padding-top: 0rem;
   margin-top: 0rem;
+  justify-content: center;
   text-align: center;
+  position: flex;
   color: var(--accent-dim);
 }
 
@@ -109,7 +122,7 @@ code {
   border-radius: var(--radius) !important;
   text-decoration: none !important;
   font-weight: bold !important;
-  font-size: 2rem !important;
+  font-size: var(--logo-size) !important;
   display: flex !important;
   align-items: center !important;
   gap: 0.5rem !important;
@@ -117,14 +130,11 @@ code {
 }
 
 .logo:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: var(--shadow) !important;
-}
-
-.logo:hover {
   color: var(--accent-bright) !important;
   text-shadow: 0 0 10px var(--accent);
   transform: scale(1.05);
+  transform: translateY(-2px) !important;
+  box-shadow: var(--shadow) !important;
 }
 
 .logo::after {
@@ -143,7 +153,7 @@ code {
   /*border: 1px solid rgba(0, 255, 0, 0.3) !important;*/
   /*border-radius: var(--radius) !important;*/
   padding: none !important;
-  font-weight: 500;
+  /*font-weight: 500;*/
   text-transform: capitalize;
   transition: all 0.4s ease;
   justify-content: center;
@@ -162,11 +172,12 @@ code {
   background: var(--card-background) !important;
   padding: 1rem 1.5rem !important;
   border-radius: var(--radius) !important;
+
   /* Circular shape */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
   text-decoration: none !important;
   border: 2px solid rgba(0, 255, 0, 0.3) !important;
-  font-size: 1.8rem;
+  font-size: var(--menu-size);
   font-weight: 1000;
   min-width: 200px;
   text-align: center;
@@ -207,7 +218,7 @@ code {
 /* ====================================
    POSTS SECTION
    ==================================== */
-/*.posts {
+.posts {
   display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
   gap: 2rem !important;
@@ -241,12 +252,12 @@ code {
   border-color: var(--accent-bright);
   animation: glow 2s infinite;
 }
-*/
+
 /* Post titles */
 .post-title {
   color: var(--foreground) !important;
-  font-size: 1.3rem !important;
-  margin-bottom: 1rem !important;
+  font-size: var(--post-title-size) !important;
+  margin-bottom: 1.5rem !important;
   font-weight: bold;
 }
 
@@ -261,16 +272,18 @@ code {
   text-shadow: 0 0 10px var(--accent);
 }
 
+/*
 .post-title::after {
   content: "  _";
   color: var(--accent);
   animation: blink 1s infinite;
 }
+*/
 
 /* Post metadata */
 .post-meta {
   color: var(--accent-dim);
-  font-size: 0.9rem;
+  font-size: var(--post-meta-size);
   margin-bottom: 1rem;
   padding: 0.5rem;
   background: rgba(0, 255, 0, 0.1);
@@ -288,6 +301,7 @@ code {
   color: var(--foreground);
   line-height: 1.6;
   margin: 1rem 0;
+  font-size: var(--post-content-size);
 }
 
 /* Post tags */
@@ -296,12 +310,12 @@ code {
 }
 
 .post-tags a {
-  background: var(--accent);
-  color: var(--background) !important;
+  background: var(--background);
+  color: #ff0000 !important;
   padding: 0.3rem 0.6rem;
   border-radius: var(--radius);
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: var(--post-tag-size);
   font-weight: bold;
   margin-right: 0.5rem;
   transition: all 0.3s ease;
@@ -335,22 +349,23 @@ code {
 /* ====================================
    INDEX/WELCOME SECTION
    ==================================== */
-/*.index-content {
+.index-content {
   background: var(--card-background);
   border: 2px solid rgba(0, 255, 0, 0.3);
   border-radius: var(--radius);
   padding: 2.5rem 2rem;
   margin-bottom: 2.5rem;
   box-shadow: 0 0 20px var(--shadow-color);
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .index-content h1 {
   color: var(--accent) !important;
-  font-size: 2.2rem !important;
+  font-size: var(--post-title-size) !important;
   font-weight: 600 !important;
   text-shadow: 0 0 10px var(--accent);
   margin-bottom: 1rem !important;
+  text-align: center;
 }
 
 .index-content h1::before {
@@ -360,10 +375,10 @@ code {
 
 .index-content p {
   color: var(--foreground);
-  font-size: 1.1rem;
+  font-size: var(--post-content-size);
   line-height: 1.6;
 }
-*/
+
 
 /* ====================================
    ANIMATIONS
@@ -415,11 +430,4 @@ code {
     padding: 1rem;
   }
 
-  .index-content {
-    padding: 1rem;
-  }
-
-  .index-content h1 {
-    font-size: 1.5rem !important;
-  }
 }
